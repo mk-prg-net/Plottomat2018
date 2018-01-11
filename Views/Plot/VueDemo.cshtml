@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "VueDemo";
+    Layout = "~/Views/Plot/Layout.cshtml";
+}
+
+<article id="App">
+    <h1>Funktionen plotten mit C3 und Vue/Vee</h1>
+    <p>
+        Mittels <a href="https://vuejs.org/v2/guide/" target="_blank">Vue</a> 
+        kann die Entwicklung einer UI stark vereinfacht werden. Vue und das Plugin
+        <a href="http://vee-validate.logaretm.com/" target="_blank">Vee</a> 
+        automatisieren die Bindung der Daten an JavaScript- Objekte, sowie die 
+        Validierung.
+    </p>
+    <!-- Applikation Plotter -->
+    <fieldset>
+        <div class="frm-grp">
+            <label for="fTerm">Funktionsterm (z.B. x*x - 9)</label>
+            <input id="fTerm" name="Term" type="text" class="frm-ctrl dock" title="X*X" v-model="fTerm" v-validate="'required'" />
+            <span v-show="errors.has('fTerm')">{{ errors.first('fTerm') }}</span>
+            <button id="btnfTerm1" type="button" class="btn btn-normal" v-on:click="B1">B1</button>
+        </div>
+        <fieldset>
+            <legend>Zu plottendes Intervall [a,b]</legend>
+            <div class="frm-grp">
+                <label class="s" for="a">a</label>
+                <input id="a" name="a" type="text" class="frm-ctrl  num" v-model="a" v-validate="'required|decimal'" />
+                <span v-show="errors.has('a')">{{ errors.first('a') }}</span>
+            </div>
+            <div class="frm-grp">
+                <label class="s" for="b">b</label>
+                <input id="b" name="b" type="text" class="frm-ctrl  num" v-model="b" v-validate="'required|decimal'" />
+                <span v-show="errors.has('b')">{{ errors.first('b') }}</span>
+            </div>
+            <div class="frm-grp">
+                <label class="s" for="points">#Punkte</label>
+                <input id="points" name="maxPoints" type="text" class="frm-ctrl  s" value="100" v-model="maxPoints" v-validate="'required|numeric'" />
+                <span v-show="errors.has('maxPoints')">{{ errors.first('points') }}</span>
+            </div>
+            <span v-show="errors.any()">{{errors.all()}}</span>            
+        </fieldset>
+        
+    </fieldset>
+    <button id="btnPlot" v-on:click="plot" type="button" class="btn btn-primary">plotten</button>
+    <button id="btnPlotReset" v-on:click="reset" type="button" class="btn" title="Zurücksetzen aller Formularfelder">Reset</button>
+
+    
+
+    <div id="chart"></div>
+
+</article>
+<script src="~/js/require.js" data-main="/js/plottomat/plottomatVue.js"></script>

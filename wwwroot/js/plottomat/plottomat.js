@@ -7,8 +7,8 @@
 //  Projekt.......: Plottomat
 //  Name..........: plottomat.js
 //  Aufgabe/Fkt...: Start der Plottomat- App.
-//                  Strukturiert mit Require JS
-//
+//                  Strukturiert mit Require JS.
+//                  Ui mit jQuery
 //
 //
 //

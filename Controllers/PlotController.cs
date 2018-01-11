@@ -11,6 +11,11 @@ namespace Plottomat.Controllers
         public IActionResult Index()
         {
             return View();
-        }        
+        }
+
+        public IActionResult VueDemo()
+        {
+            return View();
+        }
     }
 }
