@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Plottomat: DefFunc</title>
+
+    <link rel="stylesheet" href="/mk-prg-net/mk-prg-net.body.css" />
+    <link rel="stylesheet" href="/mk-prg-net/mk-prg-net.header.css" />
+    <link rel="stylesheet" href="~/mk-prg-net/mk-prg-net.typografy.css" />
+    <link rel="stylesheet" href="~/mk-prg-net/mk-prg-net.lists.css" />
+    <link rel="stylesheet" href="/mk-prg-net/mk-prg-net.links.css" />
+    <link rel="stylesheet" href="/mk-prg-net/mk-prg-net.glyphs.css" />
+    <link rel="stylesheet" href="/mk-prg-net/mk-prg-net.buttons.css" />
+    <link rel="stylesheet" href="/mk-prg-net/mk-prg-net.nav.tiles.css" />
+    <link rel="stylesheet" href="/mk-prg-net/mk-prg-net.table.css" />
+    <link rel="stylesheet" href="/mk-prg-net/mk-prg-net.form-control.css" />
+    <link rel="stylesheet" href="~/css/c3.min.css" />
+</head>
+<body>
+    <header>
+        <section><span class="glyph mk-glyph mk-glyph-decorator"></span></section>
+        <section>Plottomat 2018</section>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        (c) Martin Korneffel @System.DateTime.Now.Year
+    </footer>
+
+</body>
+</html>

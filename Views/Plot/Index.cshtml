@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Plot/Layout.cshtml";
+}
+<article>
+    <h1>Funktionen plotten</h1>
+    <!-- Applikation Plotter -->
+    <fieldset>
+        <div class="frm-grp">
+            <label for="fTerm">Funktionsterm (z.B. x*x - 9)</label>
+            <input id="fTerm" type="text" class="frm-ctrl dock" title="X*X" />
+            <button id="btnfTerm1" type="button" class="btn btn-normal">B1</button>
+        </div>
+        <fieldset>
+            <legend>Zu plottendes Intervall [a,b]</legend>
+            <div class="frm-grp">
+                <label class="s" for="a">a</label>
+                <input id="a" type="text" class="frm-ctrl  num" />
+            </div>
+            <div class="frm-grp">
+                <label class="s" for="b">b</label>
+                <input id="b" type="text" class="frm-ctrl  num" />
+            </div>
+            <div class="frm-grp">
+                <label class="s" for="points">#Punkte</label>
+                <input id="points" type="text" class="frm-ctrl  s" value="100" />
+            </div>
+        </fieldset>
+    </fieldset>
+    <button id="btnPlot" type="button" class="btn btn-primary">plotten</button>
+    <button id="btnPlotReset" type="button" class="btn" title="Zurücksetzen aller Formularfelder">Reset</button>
+    <div id="chart"></div>
+</article>
+<script src="~/js/require.js" data-main="/js/plottomat/plottomat.js"></script>
+
+
+

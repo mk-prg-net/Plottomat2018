@@ -1,0 +1,11 @@
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\bin\Debug\netcoreapp2.0\Plottomat.deps.json
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\bin\Debug\netcoreapp2.0\Plottomat.runtimeconfig.json
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\bin\Debug\netcoreapp2.0\Plottomat.runtimeconfig.dev.json
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\bin\Debug\netcoreapp2.0\Plottomat.dll
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\bin\Debug\netcoreapp2.0\Plottomat.pdb
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\obj\Debug\netcoreapp2.0\Plottomat.csprojResolveAssemblyReference.cache
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\obj\Debug\netcoreapp2.0\Plottomat.csproj.CoreCompileInputs.cache
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\obj\Debug\netcoreapp2.0\Plottomat.AssemblyInfoInputs.cache
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\obj\Debug\netcoreapp2.0\Plottomat.AssemblyInfo.cs
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\obj\Debug\netcoreapp2.0\Plottomat.dll
+C:\Users\marti_000\Documents\prj\JS\Plottomat2018\Plottomat\obj\Debug\netcoreapp2.0\Plottomat.pdb
