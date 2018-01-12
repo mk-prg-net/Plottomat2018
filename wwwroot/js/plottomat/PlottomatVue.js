@@ -60,7 +60,7 @@ requirejs.config({
 
 
 // 2. Starten der Anwendung
-requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee'], function (Compiler, Job, Plotter, Vue, Vee)
+requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee', 'jquery'], function (Compiler, Job, Plotter, Vue, Vee, $)
 {
     Vue.use(Vee);
 
@@ -112,7 +112,45 @@ requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee'], function (Compiler, Jo
                 this.b = 0;
                 this.maxPoints = 100;
             },
+            save: function ()
+            {
+                var url = $("#btnSave").attr("data-websrv-url");
 
+                var pds = {
+                    fTerm: this.fTerm,
+                    a: this.a,
+                    b: this.b,
+                    maxPoints: this.maxPoints,
+                    created: Date.now().toString()
+                }
+
+                var msg = "JSon=" + JSON.stringify(pds);
+
+                $.ajax({
+                    type: "POST",
+                    //dataType: "json",
+                    url: url,
+                    data: msg,
+                    cache: false
+                }).done(function (Data, status, req)
+                {
+
+                    // Es hat geklappt
+                    console.log("Save ok");
+                    console.log(Data.toString());
+                    var Result = JSON.parse(Data);
+
+                    //$("#calcResult").html('<span class="glyphicon glyphicon-time"></span>&nbsp;' + Result.Result.toString());
+
+                }).fail(function (jqXHR, textStatus, errorThrown)
+                {
+
+                    // Leider ein Fehler
+                    console.log("Save fehlgeschlagen");
+                    console.log(jqXHR.status.toString());
+                });
+
+            }
         }
     });
 

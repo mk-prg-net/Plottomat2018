@@ -1,40 +1,53 @@
-﻿
+﻿@model Plottomat.Controllers.PlotController.PlotDataSet[]
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Plot/Layout.cshtml";
 }
-<article>
-    <h1>Funktionen plotten</h1>
-    <!-- Applikation Plotter -->
-    <fieldset>
-        <div class="frm-grp">
-            <label for="fTerm">Funktionsterm (z.B. x*x - 9)</label>
-            <input id="fTerm" type="text" class="frm-ctrl dock" title="X*X" />
-            <button id="btnfTerm1" type="button" class="btn btn-normal">B1</button>
-        </div>
-        <fieldset>
-            <legend>Zu plottendes Intervall [a,b]</legend>
-            <div class="frm-grp">
-                <label class="s" for="a">a</label>
-                <input id="a" type="text" class="frm-ctrl  num" />
-            </div>
-            <div class="frm-grp">
-                <label class="s" for="b">b</label>
-                <input id="b" type="text" class="frm-ctrl  num" />
-            </div>
-            <div class="frm-grp">
-                <label class="s" for="points">#Punkte</label>
-                <input id="points" type="text" class="frm-ctrl  s" value="100" />
-            </div>
-        </fieldset>
-    </fieldset>
-    <button id="btnPlot" type="button" class="btn btn-primary">plotten</button>
-    <button id="btnPlotReset" type="button" class="btn" title="Zurücksetzen aller Formularfelder">Reset</button>
-    <div id="chart"></div>
 
-    @Html.ActionLink("Gehe zur Vue Demo", "VueDemo");
+<article id="App">
+    <a asp-action="VueDemo" class="btn">Neu mit Vue</a>
+    <a asp-action="JQDemo" class="btn">Neu mit JQuery</a>
+
+    <h1>Liste aller Plots</h1>
+
+    <!-- Liste aller auf dem Server gespeicherter Plots anzeigen -->
+    <table class="table table-striped">
+        <tr>
+            <th>Date</th>
+            <th>fTerm</th>
+            <th>a</th>
+            <th>b</th>
+            <th>maxPoints</th>
+            <th>Open</th>
+        </tr>
+        @foreach (var pds in Model)
+        {
+            <tr>
+                <td>
+                    @pds.fTerm
+                </td>
+                <td>
+                    @pds.a
+                </td>
+                <td>
+                    @pds.b
+                </td>
+                <td>
+                    @pds.maxPoints
+                </td>
+                <td>
+                    @pds.created
+                </td>
+                <td>
+                    <button type="button" class="btn btn-normal">Open</button>
+                </td>
+            </tr>
+
+        }
+
+
+    </table>
+
+
 </article>
-<script src="~/js/require.js" data-main="/js/plottomat/plottomat.js"></script>
-
-
 
