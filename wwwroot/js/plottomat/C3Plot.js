@@ -46,6 +46,7 @@ define(['d3', 'c3'], function(d3, c3)
                     job.ySer
                 ]
             }
+
         });
 
     }

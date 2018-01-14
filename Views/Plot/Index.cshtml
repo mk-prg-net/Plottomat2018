@@ -5,8 +5,8 @@
 }
 
 <article id="App">
-    <a asp-action="VueDemo" class="btn">Neu mit Vue</a>
-    <a asp-action="JQDemo" class="btn">Neu mit JQuery</a>
+    <a asp-action="VueDemo" class="btn btn-normal">Neu mit Vue</a>
+    <a asp-action="JQDemo" class="btn btn-normal">Neu mit JQuery</a>
 
     <h1>Liste aller Plots</h1>
 
@@ -39,7 +39,8 @@
                     @pds.created
                 </td>
                 <td>
-                    <button type="button" class="btn btn-normal">Open</button>
+                    <a asp-action="Load" asp-route-id="@pds.id" class="btn btn-normal">open</a>
+                    <a asp-action="Delete" asp-route-id="@pds.id" class="btn btn-danger">del</a>
                 </td>
             </tr>
 

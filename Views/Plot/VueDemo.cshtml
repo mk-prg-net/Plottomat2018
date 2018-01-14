@@ -1,10 +1,18 @@
-﻿
+﻿@model Plottomat.Controllers.PlotController.PlotDataSet;
 @{
     ViewData["Title"] = "VueDemo";
     Layout = "~/Views/Plot/Layout.cshtml";
 }
 
 <article id="App">
+
+    <!-- Startwerte der app-->
+    <input type="hidden" id="fTermInit" value="@Model.fTerm" />
+    <input type="hidden" id="aInit" value="@Model.a" />
+    <input type="hidden" id="bInit" value="@Model.b" />
+    <input type="hidden" id="maxPointsInit" value="@Model.maxPoints" />
+
+
     <a asp-action="Index" class="btn">Liste aller Plots</a>
 
     <h1>Funktionen plotten mit C3 und Vue/Vee</h1>
@@ -38,11 +46,11 @@
             <div class="frm-grp">
                 <label class="s" for="points">#Punkte</label>
                 <input id="points" name="maxPoints" type="text" class="frm-ctrl  s" value="100" v-model="maxPoints" v-validate="'required|numeric'" />
-                <span v-show="errors.has('maxPoints')">{{ errors.first('points') }}</span>
+                <span v-show="errors.has('maxPoints')" class="text-danger">{{ errors.first('points') }}</span>
             </div>
-            <span v-show="errors.any()">{{errors.all()}}</span>
+            <span v-show="errors.any()" class="text-danger">{{errors.all()}}</span>
+            <span v-show="status != ''" class="text-info">{{ status }}</span>
         </fieldset>
-
     </fieldset>
     <button id="btnPlot" v-on:click="plot" type="button" class="btn btn-primary">plotten</button>
     <button id="btnPlotReset" v-on:click="reset" type="button" class="btn" title="Zurücksetzen aller Formularfelder">Reset</button>
@@ -50,6 +58,9 @@
 
 
     <div id="chart"></div>
+
+    <hr />
+    <div id="piChart"></div>
 
 </article>
 <script src="~/js/require.js" data-main="/js/plottomat/plottomatVue.js"></script>

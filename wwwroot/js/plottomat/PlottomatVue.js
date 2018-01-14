@@ -60,19 +60,31 @@ requirejs.config({
 
 
 // 2. Starten der Anwendung
-requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee', 'jquery'], function (Compiler, Job, Plotter, Vue, Vee, $)
+requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee', 'jquery', 'c3Demos/PiCharts'],
+    function (Compiler, Job, Plotter, Vue, Vee, $, DemoPiCharts)
 {
     Vue.use(Vee);
 
     var app = new Vue({
         // ID des Containers, der die Html- View umschließt
         el: "#App",
+        created: function ()
+        {            
+            console.log("Plottomat vue starts");
+            this.fTerm = $("#fTermInit").val();
+            this.a= parseFloat($("#aInit").val());
+            this.b = parseFloat($("#bInit").val());
+            this.maxPoints= parseFloat($("#maxPointsInit").val());
+            this.Fehlerbericht= "keine";
+            console.log("Initial- Values: fTerm " + this.fTerm + "( [" + this.a + ", " + this.b + "]), maxPoints: " + this.maxPoints);            
+        },
         data: {
             fTerm: "x*x",
             a: 0,
             b: 100,
             maxPoints: 100,
-            Fehlerbericht : "keine"
+            Fehlerbericht: "keine",
+            status: ""
         },
         methods: {
             B1: function ()
@@ -105,6 +117,8 @@ requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee', 'jquery'], function (Co
                     Plotter(job, "#chart");
                 } 
 
+                DemoPiCharts();
+
             },
             reset: function() {
                 this.fTerm = "x*x";
@@ -117,6 +131,7 @@ requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee', 'jquery'], function (Co
                 var url = $("#btnSave").attr("data-websrv-url");
 
                 var pds = {
+                    id: "-",
                     fTerm: this.fTerm,
                     a: this.a,
                     b: this.b,
@@ -124,21 +139,22 @@ requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee', 'jquery'], function (Co
                     created: Date.now().toString()
                 }
 
-                var msg = "JSon=" + JSON.stringify(pds);
+                //var msg = JSON.stringify(pds);
 
                 $.ajax({
                     type: "POST",
-                    //dataType: "json",
                     url: url,
-                    data: msg,
+                    contentType: "application/json; charset=UTF-8",
+                    dataType: "json",
+                    data: JSON.stringify(pds),
                     cache: false
                 }).done(function (Data, status, req)
                 {
 
                     // Es hat geklappt
-                    console.log("Save ok");
-                    console.log(Data.toString());
-                    var Result = JSON.parse(Data);
+                    console.log("Save ok");                    
+                    console.log(Data.toString());                    
+                    this.status = "Save successful: " + Data.toString();
 
                     //$("#calcResult").html('<span class="glyphicon glyphicon-time"></span>&nbsp;' + Result.Result.toString());
 
@@ -146,8 +162,10 @@ requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee', 'jquery'], function (Co
                 {
 
                     // Leider ein Fehler
-                    console.log("Save fehlgeschlagen");
-                    console.log(jqXHR.status.toString());
+                    var errmsg = "Save failed: HTTP Return Code= " + jqXHR.status.toString();
+                    console.log(errmsg);
+                    alert(errmsg);
+                    
                 });
 
             }

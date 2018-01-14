@@ -107,4 +107,8 @@
     <None Include="wwwroot\mk-prg-net\pics\mk-prg-net\icons\wissen-icon.svg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="PlotBase\" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,0 @@
-{
-  "fTerm": "Math.sin(x)   Math.cos(2*x)   Math.sin(3*x)   Math.cos(4*x)",
-  "a": 0.0,
-  "b": 12.566370614359172,
-  "maxPoints": 100.0,
-  "created": "1515720730557"
-}
