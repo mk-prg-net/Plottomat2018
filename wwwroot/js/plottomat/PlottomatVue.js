@@ -117,7 +117,7 @@ requirejs(['fx/Compiler', 'Job', 'C3Plot', 'vue', 'vee', 'jquery', 'c3Demos/PiCh
                     Plotter(job, "#chart");
                 } 
 
-                DemoPiCharts();
+                //DemoPiCharts();
 
             },
             reset: function() {

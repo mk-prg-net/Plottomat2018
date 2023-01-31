@@ -1,0 +1,8 @@
+{
+  "id": "sinx.cos2x.sin3x.cos4x",
+  "fTerm": "Math.sin(x) + Math.cos(2*x) + Math.sin(3*x) + Math.cos(4*x)",
+  "a": 0,
+  "b": 12.566370614359172,
+  "maxPoints": 400.0,
+  "created": "1515970370899"
+}

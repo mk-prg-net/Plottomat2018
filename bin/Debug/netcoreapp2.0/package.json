@@ -1,0 +1,14 @@
+{
+  "name": "plottomat",
+  "version": "1.0.0",
+  "description": "Js demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martin Korneffel",
+  "license": "MIT",
+  "dependencies": {
+    "vee-validate": "^2.0.2"
+  }
+}

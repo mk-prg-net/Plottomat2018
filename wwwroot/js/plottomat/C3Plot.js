@@ -45,8 +45,24 @@ define(['d3', 'c3'], function(d3, c3)
                     job.xSer,
                     job.ySer
                 ]
-            }
+            },
+            // mko, 16.1.2022
+            axis: {
+                x: {
+                    tick: {
+                        rotate: 45
+                    }
+                }
+            },
+            grid: {
+                x: {
+                    show: true
+                },
+                y: {
+                    show: true
+                }
 
+            }
         });
 
     }

@@ -1,6 +1,6 @@
 {
-  "id": "bcd818c6-73b8-4752-aa96-8b78f02eb25b",
-  "fTerm": "x*x*x",
+  "id": "xxx-5.xx",
+  "fTerm": "(x*x*x-5)-10*x*x",
   "a": -10.0,
   "b": 10.0,
   "maxPoints": 100.0,
